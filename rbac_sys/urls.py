@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^login/$', views.login),
     url(r'^$', views.index),
     url(r'^userinfo/$', views.userinfo),
+    url(r'^userinfo/add/$', views.userinfo_add),
+    url(r'^order/$', views.order),
 ]

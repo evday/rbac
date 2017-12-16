@@ -130,3 +130,5 @@ STATICFILES_DIRS = [
 VALID_URL = ["/login/", "/admin.*",]
 
 PERMISSION_URL_DICT_KEY = "permission_url_dict_key"
+
+PERMISSION_MENU_KEY = "permission_menu_key"

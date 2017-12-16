@@ -6,8 +6,8 @@ from rbac import models
 from rbac.service.init_permission import init_permission
 
 
-from permission.page_permission_list.page_permission_list import Base_permission_list
-# Create your views here.
+from permission.page_permission_list.page_permission_list import Base_permission_list,OrderPermissionList
+
 
 def login(request):
     if request.method == "GET":
@@ -44,3 +44,9 @@ def userinfo(request):
     permission_list = Base_permission_list(request.permission_code_list)
     userinfo_list = models.User.objects.all()
     return render(request,'userinfo.html',locals())
+
+def userinfo_add(request):
+    return render(request,'userinfo_add.html')
+def order(request):
+    order_permission_list = OrderPermissionList(request.permission_code_list)
+    return render(request,"order.html",locals())
