@@ -24,3 +24,15 @@ day2
 	b: 生成数据结构 组id：{code:["list","add","edit","delete"],urls:	[/userinfo/,/userinfo/add/,/userinfo/edit/(\d+),/userinfo/delete/(\d+)]}
 
 		将code 写入 request中 以此来解决是否显示添加，删除，修改等按钮
+day3
+
+	菜单展示，以及默认选中
+
+	a:修改表结构，新增menu表，以及permission表中的自关联字段menu_gp
+	b:构造数据结构
+		init_permission 中获取相关数据
+		新增自定义标签templatetags,使用inclusion_tags（base_sidbar.html)，先构建menu_dict，再根据menu_dict构建result,将result数据渲染到base_sidbar.html中
+	c:配置base.html，{% load rbac %} {% menu_html %} 将自定义标签加入到base.html中
+	d:继承模板base.html
+
+## 简单的权限管理开发完毕
