@@ -34,3 +34,6 @@ def login(request):
             state["state"] = "failed"
 
         return HttpResponse(json.dumps(state))
+
+def index(request):
+    return HttpResponse("欢迎登录")
