@@ -35,12 +35,21 @@ class Permission(models.Model):
     '''
     title = models.CharField(verbose_name="权限",max_length=32)
     url = models.CharField(verbose_name="含正则的url",max_length=64)
+    is_menu = models.BooleanField(verbose_name="是否是菜单")
+    code = models.CharField(verbose_name="代码",max_length=32)
+    group = models.ForeignKey(verbose_name="所属组", to="Group")
 
 
 
 
     class Meta:
         verbose_name_plural = "权限表"
+
+    def __str__(self):
+        return self.title
+
+class Group(models.Model):
+    title = models.CharField(verbose_name="组名称",max_length=32)
 
     def __str__(self):
         return self.title

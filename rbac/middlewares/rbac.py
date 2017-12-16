@@ -40,17 +40,21 @@ class RbacMiddleWare(MiddlewareMixin):
                 return None
 
         #获取session中的权限列表
-        permission_list = request.session.get("permission_url_list")
+        permission_list = request.session.get(settings.PERMISSION_URL_DICT_KEY)
 
         #如果没有权限列表,返回登录页面
         if not permission_list:
             return redirect("/login/")
 
         flag = False
-        for db_url in permission_list:
-            regex = "^{0}$".format(db_url)
-            if re.match(regex,current_url):
-                flag = True
-            break
+        for group_id,code_url in permission_list.items():
+            for db_url in code_url["urls"]:
+                regex = "^{0}$".format(db_url)
+                if re.match(regex,current_url):
+                    request.permission_code_list = code_url["codes"]# 主动给request中添加一个permission_code_list
+                    flag = True
+                    break
+            if flag:
+                break
         if not flag:
             return HttpResponse("对不起，该页面您无权访问")

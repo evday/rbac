@@ -15,3 +15,13 @@ day1
 ​		设置白名单
 
 ​		获取当前url与session中用户权限比较
+
+day2
+
+​	问题：页面是否显示添加，删除，修改等按钮
+
+​	a: 修改表结构，permission表中增加一列code,创建 group 表
+
+​	b: 生成数据结构 组id：{code:["list","add","edit","delete"],urls:[/userinfo/,/userinfo/add/,/userinfo/edit/(\d+),/userinfo/delete/(\d+)]}
+
+​		将code 写入 request中 以此来解决是否显示添加，删除，修改等按钮

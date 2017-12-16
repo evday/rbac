@@ -128,3 +128,5 @@ STATICFILES_DIRS = [
 ]
 ################################设置白名单
 VALID_URL = ["/login/", "/admin.*",]
+
+PERMISSION_URL_DICT_KEY = "permission_url_dict_key"

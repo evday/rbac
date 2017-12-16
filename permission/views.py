@@ -5,6 +5,8 @@ from django.shortcuts import render,redirect,HttpResponse
 from rbac import models
 from rbac.service.init_permission import init_permission
 
+
+from permission.page_permission_list.page_permission_list import Base_permission_list
 # Create your views here.
 
 def login(request):
@@ -37,3 +39,8 @@ def login(request):
 
 def index(request):
     return HttpResponse("欢迎登录")
+
+def userinfo(request):
+    permission_list = Base_permission_list(request.permission_code_list)
+    userinfo_list = models.User.objects.all()
+    return render(request,'userinfo.html',locals())
