@@ -1,6 +1,6 @@
 ## rbac权限管理大致流程
 
-day1
+step one
 
 	a: rbac/model.py 创建表(三个类，五张表)
 
@@ -16,7 +16,7 @@ day1
 
 		获取当前url与session中用户权限比较
 
-day2
+step two
 
   	问题：页面是否显示添加，删除，修改等按钮
 
@@ -25,7 +25,7 @@ day2
 	b: 生成数据结构id{code["list","add","edit","delete"],urls[/userinfo/,/userinfo/add/,/userinfo/edit/(\d+),/userinfo/delete/(\d+)]}
 
 		将code 写入 request中 以此来解决是否显示添加，删除，修改等按钮
-day3
+step three
 
 	菜单展示，以及默认选中
 
